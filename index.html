@@ -1,100 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PAS (Ponte agli Stolli) | Sito Ufficiale</title>
-  <meta name="description" content="Sito ufficiale PAS (Ponte agli Stolli). Countdown alla prossima stagione UISP." />
-  <meta name="theme-color" content="#0B2A6F" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAS | Ponte agli Stolli</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./style.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="bg">
-    <div class="bg__blob bg__blob--1"></div>
-    <div class="bg__blob bg__blob--2"></div>
-  </div>
 
-  <main class="wrap">
-    <header class="topbar" aria-label="Intestazione">
-      <div class="brand">
-        <div class="badge" aria-hidden="true">
-          <span class="badge__p">P</span><span class="badge__a">A</span><span class="badge__s">S</span>
-        </div>
-        <div class="brand__text">
-          <div class="brand__name">PAS</div>
-          <div class="brand__sub">Ponte agli Stolli</div>
-        </div>
-      </div>
+  <main class="container">
+    <div class="card">
 
-      <div class="tag">
-        <span class="dot"></span>
-        <span id="seasonLabel">Prossima stagione</span>
-      </div>
-    </header>
+      <div class="badge">PAS</div>
 
-    <section class="hero" aria-label="Countdown stagione">
-      <h1 class="hero__title">Sito ufficiale <span class="hl">PAS</span></h1>
-      <p class="hero__lead">
-        Stiamo preparando la prossima stagione. Nel frattempo, ecco quanto manca al fischio d’inizio.
+      <h1>
+        Ponte agli Stolli
+        <span>Prossima stagione</span>
+      </h1>
+
+      <p class="subtitle">
+        Il conto alla rovescia è iniziato.<br>
+        La nuova stagione sta arrivando.
       </p>
 
-      <div class="card" role="group" aria-label="Countdown">
-        <div class="countdown" id="countdown" aria-live="polite">
-          <div class="tile">
-            <div class="tile__num" id="dd">--</div>
-            <div class="tile__lab">Giorni</div>
-          </div>
-          <div class="tile">
-            <div class="tile__num" id="hh">--</div>
-            <div class="tile__lab">Ore</div>
-          </div>
-          <div class="tile">
-            <div class="tile__num" id="mm">--</div>
-            <div class="tile__lab">Min</div>
-          </div>
-          <div class="tile">
-            <div class="tile__num" id="ss">--</div>
-            <div class="tile__lab">Sec</div>
-          </div>
+      <div class="countdown">
+        <div class="box">
+          <span id="dd">--</span>
+          <small>Giorni</small>
         </div>
-
-        <div class="meta">
-          <div class="meta__row">
-            <span class="meta__key">Inizio stagione:</span>
-            <span class="meta__val" id="startHuman">—</span>
-          </div>
-          <div class="meta__row">
-            <span class="meta__key">Fuso orario:</span>
-            <span class="meta__val">Europa/Roma</span>
-          </div>
+        <div class="box">
+          <span id="hh">--</span>
+          <small>Ore</small>
         </div>
-
-        <div class="actions">
-          <button class="btn btn--primary" id="addToCalendar" type="button">
-            Aggiungi al calendario
-          </button>
-          <button class="btn btn--ghost" id="copyLink" type="button">
-            Copia link
-          </button>
+        <div class="box">
+          <span id="mm">--</span>
+          <small>Min</small>
         </div>
-
-        <p class="fineprint" id="statusText">
-          Imposta la data in <code>script.js</code> e pubblica il sito. Il resto lo fa la magia (cioè JavaScript).
-        </p>
+        <div class="box">
+          <span id="ss">--</span>
+          <small>Sec</small>
+        </div>
       </div>
-    </section>
 
-    <footer class="footer">
-      <div class="footer__left">© <span id="year"></span> PAS (Ponte agli Stolli)</div>
-      <div class="footer__right">Colori ufficiali: giallo & blu</div>
-    </footer>
+      <p class="date">
+        Inizio stagione: <strong id="startHuman"></strong>
+      </p>
+
+    </div>
   </main>
+
+  <footer>
+    © <span id="year"></span> PAS – Colori ufficiali: giallo & blu
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
   <script src="./script.js"></script>
 </body>
