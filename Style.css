@@ -226,3 +226,104 @@ body{
   .countdown{grid-template-columns: repeat(2, minmax(0,1fr));}
   .badge{width:52px;height:52px;}
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: radial-gradient(circle at top, #123c8a, #06142e);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(0,0,0,0.35);
+  border-radius: 24px;
+  padding: 40px 30px;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.badge {
+  background: #ffd400;
+  color: #0b2a6f;
+  font-weight: 800;
+  font-size: 22px;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+h1 span {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffd400;
+  margin-top: 6px;
+}
+
+.subtitle {
+  margin: 20px 0 30px;
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.box {
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 14px 10px;
+}
+
+.box span {
+  font-size: 34px;
+  font-weight: 800;
+  display: block;
+}
+
+.box small {
+  font-size: 11px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.date {
+  margin-top: 25px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 12px;
+  opacity: 0.6;
+}
