@@ -1,219 +1,110 @@
-:root{
-  --blue:#0B2A6F;
-  --blue2:#0E3A9B;
-  --yellow:#FFD400;
-  --text: rgba(255,255,255,.92);
-  --muted: rgba(255,255,255,.72);
-  --stroke: rgba(255,255,255,.14);
-  --glass: rgba(255,255,255,.08);
-  --shadow: 0 22px 70px rgba(0,0,0,.55);
-  --r: 24px;
-}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAS (Ponte agli Stolli) | Countdown Stagione</title>
+  <meta name="description" content="Sito ufficiale PAS (Ponte agli Stolli). Countdown alla prossima stagione UISP." />
+  <meta name="theme-color" content="#0B2A6F" />
 
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
 
-body{
-  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--text);
-  background: radial-gradient(1200px 700px at 20% 10%, #113b95 0%, #081a43 45%, #050b1a 100%);
-  overflow-x:hidden;
-}
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-/* Background FX */
-.bg{position:fixed; inset:0; pointer-events:none; z-index:-1;}
-.blob{
-  position:absolute; width:560px; height:560px; border-radius:50%;
-  filter: blur(50px); opacity:.55;
-}
-.blob--y{
-  left:-170px; top:-180px;
-  background: radial-gradient(circle at 30% 30%, var(--yellow), rgba(255,212,0,0) 62%);
-}
-.blob--b{
-  right:-190px; bottom:-190px;
-  background: radial-gradient(circle at 30% 30%, #3aa0ff, rgba(58,160,255,0) 62%);
-}
-.grid{
-  position:absolute; inset:0;
-  background:
-    linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
-  background-size: 46px 46px;
-  mask-image: radial-gradient(circle at 50% 35%, rgba(0,0,0,.9), rgba(0,0,0,0) 70%);
-  opacity:.15;
-}
+<body>
+  <div class="bg">
+    <div class="blob blob--y"></div>
+    <div class="blob blob--b"></div>
+    <div class="grid"></div>
+  </div>
 
-.top{
-  max-width: 1060px;
-  margin: 0 auto;
-  padding: 22px 18px 0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 14px;
-}
+  <header class="top">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">PAS</div>
+      <div class="brand__text">
+        <div class="brand__name">Ponte agli Stolli</div>
+        <div class="brand__sub">Sito ufficiale • UISP</div>
+      </div>
+    </div>
 
-.brand{display:flex; align-items:center; gap: 14px;}
-.logo{
-  width:58px; height:58px;
-  border-radius: 18px;
-  display:flex; align-items:center; justify-content:center;
-  font-weight: 900;
-  letter-spacing: .6px;
-  color: var(--blue);
-  background: linear-gradient(135deg, var(--yellow), #ffe26a);
-  border: 1px solid rgba(255,255,255,.18);
-  box-shadow: 0 18px 50px rgba(0,0,0,.35);
-}
-.brand__name{font-weight: 900; letter-spacing: .2px;}
-.brand__sub{font-size: 12px; color: var(--muted); margin-top: 2px;}
+    <div class="pill">
+      <span class="dot"></span>
+      <span id="statusPill">Prossima stagione</span>
+    </div>
+  </header>
 
-.pill{
-  display:flex; align-items:center; gap: 10px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.14);
-}
-.dot{
-  width:10px; height:10px; border-radius:50%;
-  background: var(--yellow);
-  box-shadow: 0 0 0 4px rgba(255,212,0,.18);
-}
+  <main class="wrap">
+    <section class="hero">
+      <h1>
+        Sta per ricominciare.
+        <span class="hl">E questa volta si fa sul serio.</span>
+      </h1>
 
-.wrap{
-  max-width: 1060px;
-  margin: 0 auto;
-  padding: 26px 18px 26px;
-}
+      <p class="lead">
+        Il PAS torna in campo: preparati alla prossima stagione.
+        <br class="br" />Qui sotto trovi il countdown ufficiale.
+      </p>
 
-.hero{padding: 18px 0 8px;}
-h1{
-  font-size: clamp(30px, 5vw, 58px);
-  line-height: 1.05;
-  letter-spacing: -0.8px;
-}
-.hl{
-  display:block;
-  margin-top: 6px;
-  color: var(--yellow);
-  text-shadow: 0 14px 45px rgba(255,212,0,.18);
-}
-.lead{
-  margin-top: 14px;
-  max-width: 65ch;
-  color: rgba(255,255,255,.78);
-  line-height: 1.65;
-  font-size: 15px;
-}
-.br{display:none}
+      <div class="card" role="group" aria-label="Countdown stagione">
+        <div class="countdown" aria-live="polite">
+          <div class="box">
+            <div class="num" id="dd">--</div>
+            <div class="lab">Giorni</div>
+          </div>
+          <div class="box">
+            <div class="num" id="hh">--</div>
+            <div class="lab">Ore</div>
+          </div>
+          <div class="box">
+            <div class="num" id="mm">--</div>
+            <div class="lab">Min</div>
+          </div>
+          <div class="box">
+            <div class="num" id="ss">--</div>
+            <div class="lab">Sec</div>
+          </div>
+          <div class="box box--ms">
+            <div class="num" id="cs">--</div>
+            <div class="lab">Centesimi</div>
+          </div>
+        </div>
 
-.card{
-  margin-top: 18px;
-  padding: 18px;
-  border-radius: var(--r);
-  background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.06));
-  border: 1px solid rgba(255,255,255,.16);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(10px);
-}
+        <div class="meta">
+          <div class="meta__row">
+            <span class="k">Inizio stagione:</span>
+            <span class="v" id="startHuman">—</span>
+          </div>
+          <div class="meta__row">
+            <span class="k">Fuso orario:</span>
+            <span class="v">Europa/Roma</span>
+          </div>
+        </div>
 
-.countdown{
-  display:grid;
-  grid-template-columns: repeat(5, minmax(0,1fr));
-  gap: 12px;
-}
+        <div class="actions">
+          <button class="btn btn--primary" id="addToCalendar" type="button">
+            Aggiungi al calendario
+          </button>
+          <button class="btn btn--ghost" id="copyLink" type="button">
+            Copia link
+          </button>
+        </div>
 
-.box{
-  text-align:center;
-  padding: 14px 12px;
-  border-radius: 18px;
-  background: rgba(0,0,0,.18);
-  border: 1px solid rgba(255,255,255,.14);
-}
-.num{
-  font-size: clamp(26px, 4.6vw, 46px);
-  font-weight: 900;
-  letter-spacing: .4px;
-}
-.lab{
-  margin-top: 4px;
-  font-size: 11px;
-  letter-spacing: .8px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.70);
-}
+        <p class="note" id="note">
+          Countdown fluido attivo. Se non scorre, <b>script.js non viene caricato</b> (path/nome file).
+        </p>
+      </div>
+    </section>
 
-.meta{
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(255,255,255,.12);
-  display:flex;
-  flex-direction:column;
-  gap: 8px;
-}
-.meta__row{
-  display:flex;
-  justify-content:space-between;
-  gap: 10px;
-  flex-wrap:wrap;
-}
-.k{font-size: 12px; color: rgba(255,255,255,.62);}
-.v{font-size: 12px; font-weight: 800;}
+    <footer class="foot">
+      <span>© <span id="year"></span> PAS (Ponte agli Stolli)</span>
+      <span class="sep">•</span>
+      <span>Giallo & Blu</span>
+    </footer>
+  </main>
 
-.actions{
-  margin-top: 14px;
-  display:flex;
-  gap: 10px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  appearance:none;
-  border: 0;
-  cursor:pointer;
-  border-radius: 14px;
-  padding: 12px 14px;
-  font-weight: 900;
-  letter-spacing: .3px;
-  font-size: 13px;
-  transition: transform .12s ease, filter .12s ease;
-}
-.btn:active{transform: translateY(1px);}
-.btn--primary{
-  background: linear-gradient(135deg, var(--yellow), #ffe26a);
-  color: var(--blue);
-  box-shadow: 0 14px 35px rgba(255,212,0,.16);
-}
-.btn--ghost{
-  background: rgba(255,255,255,.08);
-  color: rgba(255,255,255,.92);
-  border: 1px solid rgba(255,255,255,.14);
-}
-
-.note{
-  margin-top: 12px;
-  color: rgba(255,255,255,.72);
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-.foot{
-  margin-top: 18px;
-  display:flex;
-  gap: 10px;
-  flex-wrap:wrap;
-  align-items:center;
-  color: rgba(255,255,255,.62);
-  font-size: 12px;
-}
-.sep{opacity:.55}
-
-@media (max-width: 760px){
-  .br{display:block}
-}
-@media (max-width: 620px){
-  .countdown{grid-template-columns: repeat(2, minmax(0,1fr));}
-  .box--ms{grid-column: span 2;}
-}
+  <script src="script.js"></script>
+</body>
+</html>
